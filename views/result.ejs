@@ -1,0 +1,57 @@
+<%- include('partials/header') %>
+
+<form class="" action="/choose" method="post">
+
+<div>
+    <input type="checkbox" name="podziemia" value="podziemia">
+    <label for="podziemia">Podziemia</label>
+</div>
+<div>
+    <input type="checkbox" name="gory" value="gory">
+    <label for="gory">Góry</label>
+</div>
+<div>
+    <input type="checkbox" name="smoki" value="smoki">
+    <label for="smoki">Smoki</label>
+</div>
+<div>
+    <input type="checkbox" name="miasto" value="miasto">
+    <label for="miasto">Miasto</label>
+</div>
+<div>
+    <input type="checkbox" name="las" value="las">
+    <label for="las">Las</label>
+</div>
+<div>
+    <input type="checkbox" name="kataklizm" value="kataklizm">
+    <label for="Kataklizm">Kataklizm</label>
+</div>
+<div>
+    <input type="checkbox" name="krainaLodu" value="kraina lodu">
+    <label for="krainaLodu">Kraina Lodu</label>
+</div>
+
+<div>
+  <p>How many maps you want to use?</p>
+  <input type="text" name="mapsNumber" placeholder="1-7">
+  </div>
+
+<button type="submit" name="button">Submit</button>
+</form>
+
+<div>
+<p>
+  Today you will play with:
+</p>
+<% for(let i=0; i < arrayResult.length; i++){ %>
+    <div>
+      <p>
+        <%=arrayResult[i]%>
+        </p>
+      </div>
+  <%}%>
+  </div>
+
+
+
+<%- include('partials/footer') %>
