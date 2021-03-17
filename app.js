@@ -27,6 +27,7 @@ app.get("/result", function(req, res) {
 })
 
 app.post("/choose", function(req, res) {
+
   const arrayAll = [req.body.podziemia, req.body.gory, req.body.smoki, req.body.miasto, req.body.las, req.body.kataklizm, req.body.krainaLodu]
 
   const mapsNumber = Number(req.body.mapsNumber);
@@ -41,7 +42,7 @@ app.post("/choose", function(req, res) {
 
 
   if (uniqueChar.length < mapsNumber) {
-    for (let i = uniqueChar.length; i <= mapsNumber; i++) {
+    for (let i = 0; i <= mapsNumber; i++) {
       addItems()
     }
   };
@@ -49,15 +50,16 @@ app.post("/choose", function(req, res) {
 
   function addItems() {
     arrayResult.push(arrayChecked[Math.floor(Math.random() * arrayChecked.length)])
-  }
+    arrayResult.forEach(filterFunction)
 
-  arrayResult.forEach(filterFunction)
+    function filterFunction(item) {
+      if (!uniqueChar.includes(item)) {
+        uniqueChar.push(item)
+      }
+    };
+  };
 
-  function filterFunction(item) {
-    if (!uniqueChar.includes(item)) {
-      uniqueChar.push(item)
-    }
-  }
+
 
   console.log(uniqueChar.length)
   console.log(uniqueChar)
