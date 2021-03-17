@@ -14,7 +14,7 @@ app.use(express.static("public"))
 
 let arrayChecked = [];
 let arrayResult = [];
-
+let uniqueChar = [];
 
 app.get("/", function(req, res) {
   res.render("home")
@@ -22,14 +22,14 @@ app.get("/", function(req, res) {
 
 app.get("/result", function(req, res) {
   res.render("result", {
-    arrayResult: arrayResult
+    arrayResult: uniqueChar
   })
 })
 
 app.post("/choose", function(req, res) {
   const arrayAll = [req.body.podziemia, req.body.gory, req.body.smoki, req.body.miasto, req.body.las, req.body.kataklizm, req.body.krainaLodu]
 
-  const mapsNumber = Number(req.body.mapsNumber) + 1
+  const mapsNumber = Number(req.body.mapsNumber);
 
   arrayAll.forEach(checkedFunction)
 
@@ -39,26 +39,33 @@ app.post("/choose", function(req, res) {
     }
   }
 
-  if (arrayResult.length === 0) {
-    for (let i = 0; i < mapsNumber; i++) {
 
-      arrayResult.push(arrayChecked[Math.floor(Math.random() * arrayChecked.length + 1)])
+  if (uniqueChar.length < mapsNumber) {
+    for (let i = uniqueChar.length; i <= mapsNumber; i++) {
+      addItems()
+    }
+  };
 
+
+  function addItems() {
+    arrayResult.push(arrayChecked[Math.floor(Math.random() * arrayChecked.length)])
+  }
+
+  arrayResult.forEach(filterFunction)
+
+  function filterFunction(item) {
+    if (!uniqueChar.includes(item)) {
+      uniqueChar.push(item)
     }
   }
 
-  $.each(arrayResult, function(i, el) {
-    if ($.inArray(el, arrayResultfinal) === -1) arrayResultfinal.push(el)
-  });
-
-
-
-
-
-  console.log(arrayResult)
-  console.log(arrayChecked[Math.floor(Math.random() * arrayChecked.length + 1)])
-  console.log(mapsNumber)
-  res.redirect("/result")
+  console.log(uniqueChar.length)
+  console.log(uniqueChar)
+  // console.log(arrayChecked);
+  console.log(arrayResult);
+  // console.log(arrayChecked[Math.floor(Math.random() * arrayChecked.length + 1)]);
+  console.log(mapsNumber);
+  res.redirect("/result");
 });
 
 
