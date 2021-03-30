@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const app = express();
+const _ = require("lodash")
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -41,15 +42,16 @@ app.post("/choose", function(req, res) {
   }
 
 
-  if (uniqueChar.length < mapsNumber) {
-    for (let i = 0; i <= mapsNumber; i++) {
-      addItems()
-    }
-  };
+
+  do {
+    addItems()
+  } while (uniqueChar.length > 0 && uniqueChar.length < mapsNumber)
+
+
 
 
   function addItems() {
-    arrayResult.push(arrayChecked[Math.floor(Math.random() * arrayChecked.length)])
+    arrayResult.push(_.upperFirst(arrayChecked[Math.floor(Math.random() * arrayChecked.length)]))
     arrayResult.forEach(filterFunction)
 
     function filterFunction(item) {
@@ -58,6 +60,8 @@ app.post("/choose", function(req, res) {
       }
     };
   };
+  res.redirect("/result")
+
 
 
 
@@ -67,11 +71,13 @@ app.post("/choose", function(req, res) {
   console.log(arrayResult);
   // console.log(arrayChecked[Math.floor(Math.random() * arrayChecked.length + 1)]);
   console.log(mapsNumber);
-  res.redirect("/result");
+
 });
 
 
-
+app.post("/result", function(req, res) {
+  res.redirect("/")
+})
 
 
 

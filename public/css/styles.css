@@ -58,7 +58,7 @@ label {
 .placeholder {
   border: 4px solid #351f39;
   background-color: #726a95;
-  border-radius: 10%;
+  border-radius: 15%;
 width: 3rem;
 height: 2rem;
 }
@@ -74,4 +74,15 @@ input::-webkit-input-placeholder{
   font-family: "Abel", sans-serif;
   opacity: 0.5;
 text-align: center;
+}
+
+/* Result page */
+
+.result-container {
+  text-align: center;
+}
+
+.result-items {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

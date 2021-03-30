@@ -1,28 +1,28 @@
 <%- include('partials/header') %>
 
 <div class="container">
-  <h1 class="header big-text">Map draw</h1>
+  <h1 class="header big-text">Maps draw</h1>
   <h2 class="logo big-text">Talisman</h2>
   </div>
 
 
 
 
-<div>
-<p>
+<div class="result-container">
+<p class="question">
   Today you will play with:
 </p>
-<% for(let i=0; i < arrayResult.length; i++){ %>
+<% for(let i=0; i <= arrayResult.length; i++){ %>
     <div>
-      <p>
+      <p class="result-items">
         <%=arrayResult[i]%>
         </p>
       </div>
   <%}%>
   </div>
-  <form>
-    <div>
-      <button type="submit" name="goBack" >Go Back</button>
+  <form action="/result" method="post">
+    <div class="result-container">
+      <button class="btn btn-lg btn-dark" type="submit" name="goBack" >Go Back</button>
       </div>
     </form>
 
