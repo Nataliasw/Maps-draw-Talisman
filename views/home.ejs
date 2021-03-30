@@ -1,45 +1,59 @@
-<%- include('partials/header') %>
+<%- include('./partials/header') %>
+
+<div class="container">
+  <h1 class="header big-text">Map draw</h1>
+
+  <h2 class="logo big-text">Talisman</h2>
+  </div>
+
+
+<div class="choosing-form">
 
 <form class="" action="/choose" method="post">
 
-<div>
+<p class="question">
+  Choose your maps:
+  </p>
+
+<label  class="checkbox-label" for="podziemia">
     <input type="checkbox" name="podziemia" value="podziemia">
-    <label for="podziemia">Podziemia</label>
-</div>
-<div>
+
+Podziemia
+    </label>
+
+<label for="gory">
     <input type="checkbox" name="gory" value="gory">
-    <label for="gory">Góry</label>
-</div>
-<div>
+    Góry</label>
+
+<label for="smoki">
     <input type="checkbox" name="smoki" value="smoki">
-    <label for="smoki">Smoki</label>
-</div>
-<div>
+    Smoki</label>
+
+<label for="miasto">
     <input type="checkbox" name="miasto" value="miasto">
-    <label for="miasto">Miasto</label>
-</div>
-<div>
+    Miasto</label>
+
+<label for="las">
     <input type="checkbox" name="las" value="las">
-    <label for="las">Las</label>
-</div>
-<div>
+    Las</label>
+
+  <label for="Kataklizm">
     <input type="checkbox" name="kataklizm" value="kataklizm">
-    <label for="Kataklizm">Kataklizm</label>
-</div>
-<div>
+  Kataklizm</label>
+
+<label for="krainaLodu">
     <input type="checkbox" name="krainaLodu" value="kraina lodu">
-    <label for="krainaLodu">Kraina Lodu</label>
-</div>
+    Kraina Lodu</label>
+
 
 <div>
-  <p>How many maps you want to use?</p>
-  <input type="text" name="mapsNumber" placeholder="1-7">
+  <p class="question">How many maps you want to use?</p>
+  <input class="placeholder" type="text" name="mapsNumber" placeholder="1-7" autocomplete="off" >
   </div>
 
-<button type="submit" name="button">Submit</button>
+<button class="btn btn-dark btn-lg" type="submit" name="button">Draw</button>
 </form>
 
+  </div>
 
-
-
-<%- include('partials/footer') %>
+<%- include('./partials/footer') %>
