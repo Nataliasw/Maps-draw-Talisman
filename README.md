@@ -35,3 +35,4 @@ $ npm i express body-parser ejs lodash
 
 ## Choose extenstions (maps) you own, then insert the number of maps you want to play with tonight and click Draw button.
 
+This project was created only for educational purposes.
