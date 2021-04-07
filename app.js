@@ -19,6 +19,9 @@ let uniqueChar = [];
 
 app.get("/", function(req, res) {
   res.render("home")
+  arrayChecked = [];
+  arrayResult = [];
+  uniqueChar = [];
 });
 
 app.get("/result", function(req, res) {
@@ -27,13 +30,17 @@ app.get("/result", function(req, res) {
   })
 })
 
+//------------------------------------ -------------input form -----------------------------------------------
+
 app.post("/choose", function(req, res) {
 
-  const arrayAll = [req.body.podziemia, req.body.gory, req.body.smoki, req.body.miasto, req.body.las, req.body.kataklizm, req.body.krainaLodu]
+  const arrayAll = [req.body.dungeon, req.body.highland, req.body.dragon, req.body.city, req.body.woodland, req.body.cataclysm, req.body.northenland]
 
   const mapsNumber = Number(req.body.mapsNumber);
 
   arrayAll.forEach(checkedFunction)
+
+  //if checkbox is checked, push item to the array
 
   function checkedFunction(item) {
     if (item != undefined) {
@@ -49,7 +56,7 @@ app.post("/choose", function(req, res) {
 
 
 
-
+  //if array uniqueChar do not contain item from arrayResult it will be pushed there
   function addItems() {
     arrayResult.push(_.upperFirst(arrayChecked[Math.floor(Math.random() * arrayChecked.length)]))
     arrayResult.forEach(filterFunction)
@@ -74,7 +81,7 @@ app.post("/choose", function(req, res) {
 
 });
 
-
+//-------------------------------------------result------------------------------------
 app.post("/result", function(req, res) {
   res.redirect("/")
 })
