@@ -17,10 +17,10 @@ Project is created with:
 * EJS
 
 It requires npm extenstions to work:
-*lodash
-*express
-*body-parser
-*ejs
+* lodash
+* express
+* body-parser
+* ejs
 
 	
 ## Setup
