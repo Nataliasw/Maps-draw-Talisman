@@ -6,6 +6,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Usage](#usage)
 
 ## General info
 * This is a tool for Talisman players. It helps them decide on maps for the Talisman game night.
@@ -33,6 +34,16 @@ $ npm start
 $ npm i express body-parser ejs lodash
 ```
 
-## Choose extenstions (maps) you own, then insert the number of maps you want to play with tonight and click Draw button.
+Page can be loaded using:
+
+```
+$ nodemon index.js
+or
+$ node index.js
+```
+
+
+## Usage
+Choose extenstions (maps) you own, then insert the number of maps you want to play with tonight and click Draw button.
 
 This project was created only for educational purposes.
