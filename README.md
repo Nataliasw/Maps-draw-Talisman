@@ -8,6 +8,8 @@
 * [Setup](#setup)
 * [Usage](#usage)
 
+![alt text](https://github.com/nataliasw/Maps-draw-talisman/blob/main/Talisman-1.jpg?raw=true)
+
 ## General info
 * This is a tool for Talisman players. It helps them decide on maps for the Talisman game night.
 	
